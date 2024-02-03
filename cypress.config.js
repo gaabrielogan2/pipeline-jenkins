@@ -6,8 +6,9 @@ module.exports = defineConfig({
   "reporterOptions": {
     "reportDir": "mochawesome-report",
     "overwrite": false,
+    "reportFileName": "index.html",
     "html": true,
-    "json": true
+    "json": false
   },
   e2e: {
     specPattern: "cypress/e2e/step_definitions/*.feature",
