@@ -17,8 +17,4 @@ steps:
 - script: 'npm run test'
   displayName: "Executa os testes"
 
-- task: PublishTestResults@2
-  displayName: "Gera um relatório"
-  inputs:
-    testResultsFormat: 'JUnit'
-    testResultsFiles: '**/TEST-*.xml'  # Adjust this pattern based on your test runner's output
+
