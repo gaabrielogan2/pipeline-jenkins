@@ -1,0 +1,33 @@
+name: Ebac - exercício
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        continue-on-error: true
+        with:
+          install-command: npm install
+          browser: chrome
+
+      - name: Publish report
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./mochawesome-report
