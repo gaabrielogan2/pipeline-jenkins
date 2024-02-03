@@ -1,4 +1,3 @@
-
 trigger:
 - main
 
@@ -11,12 +10,15 @@ steps:
   inputs:
     versionSource: 'spec'
     versionSpec: '12.x'
+
 - script: 'npm install'
   displayName: "Instala dependências"
+
 - script: 'npm run test'
   displayName: "Executa os testes"
+
 - task: PublishTestResults@2
   displayName: "Gera um relatório"
   inputs:
     testResultsFormat: 'JUnit'
-    testResultsFiles: '**/-*.xml'
+    testResultsFiles: '**/TEST-*.xml'  # Adjust this pattern based on your test runner's output
