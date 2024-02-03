@@ -14,7 +14,16 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                bat "publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'mochawesome-report', reportFiles: 'mochawesome.html', reportName: 'Ebac Reporter', reportTitles: '', useWrapperFileDirectly: true])"
+                publishHTML([
+            allowMissing: false,
+            alwaysLinkToLastBuild: false,
+            keepAll: false,
+            reportDir: 'mochawesome-report',
+            reportFiles: 'mochawesome.html',
+            reportName: 'Ebac Reporter',
+            reportTitles: '',
+            useWrapperFileDirectly: true
+        ])
             }
         }
     }
