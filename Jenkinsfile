@@ -4,17 +4,17 @@ pipeline {
     stages {
         stage('Setup') {
             steps {
-                sh 'npm install'
+                bat 'npm install'
             }
         }
         stage('Test') {
             steps {
-                sh 'npm run mocha'
+                bat 'npm run mocha'
             }
         }
         stage('Deploy') {
             steps {
-                sh "publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'mochawesome-report', reportFiles: 'mochawesome.html', reportName: 'Ebac Reporter', reportTitles: '', useWrapperFileDirectly: true])"
+                bat "publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'mochawesome-report', reportFiles: 'mochawesome.html', reportName: 'Ebac Reporter', reportTitles: '', useWrapperFileDirectly: true])"
             }
         }
     }
