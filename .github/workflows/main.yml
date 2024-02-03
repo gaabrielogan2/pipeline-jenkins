@@ -11,7 +11,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Run tests 💻
+      - name: Run end-to-end tests on desktop viewport 💻
         uses: cypress-io/github-action@v2
         with:
           command: npm test
@@ -21,3 +21,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./mochawesome-report
+          branch: gh-pages  # Ensure this matches your target branch
