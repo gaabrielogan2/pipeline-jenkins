@@ -13,7 +13,7 @@ const user = {
 
 
 Given('Eu visite a loja EBAC Store', () => {
-    cy.visit('/minha-conta')
+    cy.visit('/minha-conta') //teste
 })
 
 When('Eu insira o e-mail, senha, nome e sobrenome', () => {
