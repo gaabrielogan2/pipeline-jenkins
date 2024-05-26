@@ -1,4 +1,4 @@
-name: End-to-end tests 🧪
+name: Testes de ponta a ponta 🧪
 
 on:
   push:
@@ -11,13 +11,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Run tests 💻
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Executar testes 💻
         uses: cypress-io/github-action@v2
         with:
           command: npm test
 
-      - name: Publish report
+      - name: Publicar relatório
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.ACTIONS_DEPLOY_KEY }}  # Use o PAT armazenado como segredo
           publish_dir: ./mochawesome-report
